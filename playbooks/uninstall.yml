@@ -1,0 +1,11 @@
+---
+- name: Uninstall Grafana Server
+  hosts: grafana
+  gather_facts: true
+  tasks:
+
+    - name: Uinstall the grafana Server
+      ansible.builtin.import_role:
+        name: grafana
+        tasks_from: uninstall.yml
+...

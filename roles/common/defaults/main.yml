@@ -1,0 +1,23 @@
+---
+### registry variables
+registry_auth: true
+registry_url: docker.io
+registry_tls_verify: true
+registry_ns_grafana: grafana
+registry_ns_prometheus: prom
+
+### podman
+podman_packages:
+  - crun
+  - podman
+  - slirp4netns
+  - fuse-overlayfs
+podman_runtime: crun
+
+### container image variables
+container_compress: gzip
+container_image_update: false
+container_keep_images: false
+grafana_image: 'grafana-oss:latest'
+prometheus_image: 'prometheus:latest'
+...

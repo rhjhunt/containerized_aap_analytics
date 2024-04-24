@@ -1,13 +1,13 @@
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v4.6.0
     hooks:
       - id: end-of-file-fixer
       - id: trailing-whitespace
 
   - repo: https://github.com/ansible/ansible-lint.git
-    rev: v6.17.2
+    rev: v24.2.2
     hooks:
       - id: ansible-lint
         files: \.(yaml|yml)$
@@ -15,7 +15,7 @@ repos:
           - "--profile=production"
 
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.32.0
+    rev: v1.35.1
     hooks:
       - id: yamllint
         exclude: .github/.*
@@ -25,7 +25,15 @@ repos:
         entry: yamllint --strict .
 
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.8.1
+    rev: v0.13.0
     hooks:
       - id: markdownlint-cli2
-        exclude: .github/ci/vale/.*
+        exclude: .github/.*
+
+  - repo: https://github.com/errata-ai/vale.git
+    rev: v3.4.1
+    hooks:
+      - id: vale
+        exclude: .github/.*
+        files: \.(md)$
+...

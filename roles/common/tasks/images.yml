@@ -1,0 +1,24 @@
+---
+- name: Set full container images URL
+  ansible.builtin.set_fact:
+    _grafana_image: '{{ registry_url }}/{{ registry_ns_grafana }}/{{ grafana_image }}'
+    _prometheus_image: '{{ registry_url }}/{{ registry_ns_prometheus }}/{{ prometheus_image }}'
+  run_once: true
+
+- name: Add grafana images to the list
+  ansible.builtin.set_fact:
+    _images: '{{ _images | default([]) + [_grafana_image] }}'
+  when: inventory_hostname in groups.get('grafana', [])
+
+- name: Add prometheus images to the list
+  ansible.builtin.set_fact:
+    _images: '{{ _images | default([]) + [_prometheus_image] }}'
+  when: inventory_hostname in groups.get('prometheus', [])
+
+- name: Add images to the list
+  ansible.builtin.set_fact:
+    _images: '{{ _images | default([]) | union([_grafana_image, _prometheus_image]) }}'
+  when:
+    - inventory_hostname in groups.get('grafana', [])
+    - inventory_hostname in groups.get('prometheus', [])
+...

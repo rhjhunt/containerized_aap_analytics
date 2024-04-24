@@ -1,0 +1,31 @@
+---
+- name: Preflight checks
+  hosts: localhost
+  gather_facts: false
+  connection: local
+  become: false
+  tasks:
+    - name: Run preflight checks
+      ansible.builtin.import_role:
+        name: preflight
+
+- name: Install common container components
+  hosts: grafana:prometheus
+  gather_facts: false
+  become: false
+  tasks:
+    - name: Gather facts
+      ansible.builtin.setup:
+      become: true
+
+    - name: Gather regular user id, uid, and home dir
+      ansible.builtin.setup:
+        filter:
+          - 'ansible_user_id'
+          - 'ansible_user_uid'
+          - 'ansible_user_dir'
+
+    - name: Install and configure podman
+      ansible.builtin.import_role:
+        name: common
+...
