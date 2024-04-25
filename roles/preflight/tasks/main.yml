@@ -16,4 +16,3 @@
 - name: Include prometheus checks
   ansible.builtin.include_tasks: prometheus.yml
   when: groups.get('prometheus', []) length > 0
-...
