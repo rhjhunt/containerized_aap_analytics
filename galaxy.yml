@@ -34,4 +34,3 @@ build_ignore:
   - venv/
   - molecule/
   - requirements.txt
-...

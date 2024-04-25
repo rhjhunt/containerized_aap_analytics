@@ -6,4 +6,3 @@
       - grafana_admin_password | length
     fail_msg: grafana_admin_password must be set and not empty
   when: groups.get('grafana', []) | length > 0
-...

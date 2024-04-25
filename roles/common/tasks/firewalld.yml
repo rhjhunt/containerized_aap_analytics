@@ -15,4 +15,3 @@
   when:
     - ansible_facts.services.get('firewalld.service', {}) | length
     - ansible_facts.services['firewalld.service']['status'] == 'enabled'
-...

@@ -13,4 +13,3 @@ grafana_data_dir: "{{ analytics_volumes_dir }}/grafana/data"
 grafana_conf_dir: "{{ analytics_volumes_dir }}/grafana/etc"
 grafana_container_label: level:s0:c100,c200
 grafana_port: 3000
-...
