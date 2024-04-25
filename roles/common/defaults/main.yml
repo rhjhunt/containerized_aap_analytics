@@ -1,6 +1,6 @@
 ---
 ### registry variables
-registry_auth: true
+registry_auth: false
 registry_url: docker.io
 registry_tls_verify: true
 registry_ns_grafana: grafana
@@ -18,6 +18,6 @@ podman_runtime: crun
 container_compress: gzip
 container_image_update: false
 container_keep_images: false
-grafana_image: 'grafana-oss:latest'
-prometheus_image: 'prometheus:latest'
+grafana_image: grafana-oss:latest
+prometheus_image: prometheus:latest
 ...

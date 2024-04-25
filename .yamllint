@@ -18,7 +18,7 @@ rules:
   truthy:
     level: error
     allowed-values:
-      - 'true'
-      - 'false'
-      - 'on'
+      - "true"
+      - "false"
+      - "on"
 ...

@@ -1,0 +1,9 @@
+---
+- name: Ensure prometheus admin password is provided
+  ansible.builtin.assert:
+    that:
+      - prometheus_admin_password is defined
+      - prometheus_admin_password | length
+    fail_msg: prometheus_admin_password must be set and not empty
+  when: groups.get('prometheus', []) | length > 0
+...

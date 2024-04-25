@@ -17,9 +17,9 @@ tags:
   - controller
   - monitoring
 dependencies:
-  containers.podman: '*'
-  grafana.grafana: '*'
-  ansible.posix: '*'
+  containers.podman: "*"
+  grafana.grafana: "*"
+  ansible.posix: "*"
 repository: https://github.com/rhjhunt/containerized_aap_analytics
 documentation: https://github.com/rhjhunt/containerized_aap_analytics
 homepage: https://github.com/rhjhunt/containerized_aap_analytics
@@ -30,7 +30,7 @@ build_ignore:
   - .markdownlint.yml
   - .github
   - .gitignore
-  - '*.tar.gz'
+  - "*.tar.gz"
   - venv/
   - molecule/
   - requirements.txt

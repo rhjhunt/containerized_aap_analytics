@@ -6,22 +6,14 @@
       - registry_username | length
       - registry_password is defined
       - registry_password | length
-    fail_msg: 'registry_username and registry_password must be set when registry_auth=true'
+    fail_msg: registry_username and registry_password must be set when registry_auth=true
   when: registry_auth | default(true) | bool
 
-- name: Ensure grafana admin password is provided
-  ansible.builtin.assert:
-    that:
-      - grafana_admin_password is defined
-      - grafana_admin_password | length
-    fail_msg: 'grafana_admin_password must be set and not empty'
-  when: groups.get('grafana', []) | length > 0
+- name: Include grafana checks
+  ansible.builtin.include_tasks: grafana.yml
+  when: groups.get('grafana', []) length > 0
 
-- name: Ensure prometheus admin password is provided
-  ansible.builtin.assert:
-    that:
-      - prometheus_admin_password is defined
-      - prometheus_admin_password | length
-    fail_msg: 'prometheus_admin_password must be set and not empty'
-  when: groups.get('prometheus', []) | length > 0
+- name: Include prometheus checks
+  ansible.builtin.include_tasks: prometheus.yml
+  when: groups.get('prometheus', []) length > 0
 ...
