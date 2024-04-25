@@ -3,14 +3,13 @@
 podman_log_driver: journald
 
 ### common
-analytics_volumes_dir: '{{ ansible_user_dir }}/analytics'
+analytics_volumes_dir: "{{ ansible_user_dir }}/analytics"
 
 ### grafana
 grafana_admin_user: admin
 grafana_admin_email: admin@example.com
 grafana_firewall_zone: public
-grafana_data_dir: '{{ analytics_volumes_dir }}/grafana/data'
-grafana_conf_dir: '{{ analytics_volumes_dir }}/grafana/etc'
-grafana_container_label: 'level:s0:c100,c200'
+grafana_data_dir: "{{ analytics_volumes_dir }}/grafana/data"
+grafana_conf_dir: "{{ analytics_volumes_dir }}/grafana/etc"
+grafana_container_label: level:s0:c100,c200
 grafana_port: 3000
-...

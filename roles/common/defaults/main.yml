@@ -18,6 +18,5 @@ podman_runtime: crun
 container_compress: gzip
 container_image_update: false
 container_keep_images: false
-grafana_image: 'grafana-oss:latest'
-prometheus_image: 'prometheus:latest'
-...
+grafana_image: grafana-oss:latest
+prometheus_image: prometheus:latest

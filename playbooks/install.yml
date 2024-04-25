@@ -21,11 +21,10 @@
     - name: Gather regular user id, uid, and home dir
       ansible.builtin.setup:
         filter:
-          - 'ansible_user_id'
-          - 'ansible_user_uid'
-          - 'ansible_user_dir'
+          - ansible_user_id
+          - ansible_user_uid
+          - ansible_user_dir
 
     - name: Install and configure podman
       ansible.builtin.import_role:
         name: common
-...
