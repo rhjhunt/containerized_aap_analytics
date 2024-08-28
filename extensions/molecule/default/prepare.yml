@@ -1,0 +1,12 @@
+---
+- name: Run preparation actions
+  hosts: all
+  gather_facts: false
+  become: true
+  tasks:
+
+    - name: Install podman
+      ansible.builtin.dnf:
+        name: podman
+        state: present
+...
