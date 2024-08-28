@@ -1,0 +1,17 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+  provider:
+    name: libvirt
+platforms:
+  - name: centos9s
+    box: generic/centos9s
+    memory: 2048
+    cpus: 2
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
+...
