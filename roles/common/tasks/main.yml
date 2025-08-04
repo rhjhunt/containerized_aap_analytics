@@ -65,4 +65,12 @@
 
 - name: Configure firewalld
   ansible.builtin.include_tasks: firewalld.yml
+
+- name: Create podman pod
+  containers.podman.podman_pod:
+    name: "{{ podman_pod_name }}"
+    state: started
+    ports:
+      - "3000:3000"
+      - "9090:9090"
 ...
