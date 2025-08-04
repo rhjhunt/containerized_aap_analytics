@@ -1,13 +1,16 @@
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: end-of-file-fixer
       - id: trailing-whitespace
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: debug-statements
 
   - repo: https://github.com/ansible/ansible-lint.git
-    rev: v24.7.0
+    rev: v25.7.0
     hooks:
       - id: ansible-lint
         files: \.(yaml|yml)$
@@ -15,7 +18,7 @@ repos:
           - "--profile=production"
 
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.35.1
+    rev: v1.37.1
     hooks:
       - id: yamllint
         exclude: .github/.*
@@ -25,13 +28,13 @@ repos:
         entry: yamllint --strict .
 
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.13.0
+    rev: v0.18.1
     hooks:
       - id: markdownlint-cli2
         exclude: .github/.*
 
   - repo: https://github.com/errata-ai/vale.git
-    rev: v3.7.0
+    rev: v3.12.0
     hooks:
       - id: vale
         exclude: .github/.*
