@@ -10,6 +10,18 @@ platforms:
     box: generic/centos9s
     memory: 2048
     cpus: 2
+    provider_options:
+      video_type: 'qxl'
+      disk_bus: 'virtio'
+      graphics_type: 'spice'
+      driver: 'kvm'
+      nic_model_type: 'virtio'
+    config_options:
+      ssh.keep_alive: true
+    groups:
+      - grafana
+      - prometheus
+      - molecule
 provisioner:
   name: ansible
 verifier:

@@ -1,9 +1,33 @@
 ---
-- name: Converge
+- name: Fail if molecule group is missing
   hosts: all
   gather_facts: false
   tasks:
-    - name: Replace this task with one that validates your content
+
+    - name: Print group info
       ansible.builtin.debug:
-        msg: "This is the effective test"
+        msg: "{{ groups }}"
+
+- name: Converge
+  hosts: molecule
+  gather_facts: false
+  tasks:
+
+    - name: Gather facts
+      ansible.builtin.setup:
+
+    - name: Gather regular user id, uid, and home dir
+      ansible.builtin.setup:
+        filter:
+          - 'ansible_user_id'
+          - 'ansible_user_uid'
+          - 'ansible_user_dir'
+
+    - name: Install and configure podman
+      ansible.builtin.import_role:
+        name: common
+
+    - name: Run grafana role
+      ansible.builtin.import_role:
+        name: grafana
 ...
